@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Hello</title>
+</head>
+<body>
+	<h1>Hi</h1>
+	<form>
+		<p>
+			<input type="text" name="pair[]" id="pair_1" value="Dan" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_2" value="Hayley" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_3" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_4" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_5" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_6" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_7" />
+		</p>
+		<p>
+			<input type="text" name="pair[]" id="pair_8" />
+		</p>
+	</form>
+</body>
+</html>
+
+<script type="text/javascript">
+	var pairs_exist = false;
+	var pairs = "\"pairs\":";
+	pairs += "[";
+	for (i = 1; i < 9; i++) {
+		var this_value = document.getElementById('pair_' + i).value;
+		if (this_value != "") {
+			if (pairs_exist)
+				pairs += ",";
+			pairs += "{ \"name\": \""
+					+ document.getElementById('pair_' + i).value + "\"}";
+			pairs_exist = true;
+		}
+	}
+	pairs += "]";
+	alert(pairs);
+</script>
